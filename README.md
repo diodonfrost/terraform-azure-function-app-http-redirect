@@ -24,11 +24,13 @@ module "azure-function-http-redirect" {
 ## Examples
 
 *   [main](https://github.com/diodonfrost/terraform-azure-function-http-redirect/tree/master/examples/main) - Creat Azure function to redirect specific domains.
+*   [custom-domains](https://github.com/diodonfrost/terraform-azure-function-http-redirect/tree/master/examples/custom-domain) - Creat Azure function with custom domains.
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_custom_domains"></a> [custom\_domains](#input\_custom\_domains) | A list of custom domains to add to the Function App | <pre>map(object({<br>    name                         = string<br>    dns_zone_name                = string<br>    dns_zone_resource_group_name = string<br>  }))</pre> | `{}` | no |
 | <a name="input_function_app_name_prefix"></a> [function\_app\_name\_prefix](#input\_function\_app\_name\_prefix) | The prefix of the Azure Function App name | `string` | n/a | yes |
 | <a name="input_http_redirect_code"></a> [http\_redirect\_code](#input\_http\_redirect\_code) | Which HTTP redirect code to use | `string` | `"301"` | no |
 | <a name="input_location"></a> [location](#input\_location) | The location of the Azure resources | `string` | n/a | yes |
