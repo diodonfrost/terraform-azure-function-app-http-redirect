@@ -51,6 +51,7 @@ resource "azurerm_linux_function_app" "this" {
   app_settings = {
     SCM_DO_BUILD_DURING_DEPLOYMENT = true
     ENABLE_ORYX_BUILD              = true
+    AzureWebJobsDisableHomepage    = true
     FUNCTIONS_WORKER_RUNTIME       = "python"
     redirect_mappings              = jsonencode(var.redirect_mappings)
     http_redirect_code             = var.http_redirect_code

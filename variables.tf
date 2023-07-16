@@ -40,6 +40,16 @@ variable "http_redirect_code" {
   default     = "301"
 }
 
+variable "custom_domains" {
+  type = map(object({
+    name                         = string
+    dns_zone_name                = string
+    dns_zone_resource_group_name = string
+  }))
+  description = "A list of custom domains to add to the Function App"
+  default     = {}
+}
+
 variable "tags" {
   type        = map(string)
   description = "The tags to apply to the Azure resources"
