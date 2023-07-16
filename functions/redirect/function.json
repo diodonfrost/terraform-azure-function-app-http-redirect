@@ -4,6 +4,7 @@
   "bindings": [
       {
           "authLevel": "anonymous",
+          "route": "/",
           "type": "httpTrigger",
           "direction": "in",
           "name": "req"
