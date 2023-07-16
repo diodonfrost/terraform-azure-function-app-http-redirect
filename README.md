@@ -23,8 +23,8 @@ module "azure-function-http-redirect" {
 
 ## Examples
 
-*   [main](https://github.com/diodonfrost/terraform-azure-function-http-redirect/tree/master/examples/main) - Creat Azure function to redirect specific domains.
-*   [custom-domains](https://github.com/diodonfrost/terraform-azure-function-http-redirect/tree/master/examples/custom-domain) - Creat Azure function with custom domains.
+* [main](https://github.com/diodonfrost/terraform-azure-function-http-redirect/tree/master/examples/main) - Creat Azure function to redirect specific domains.
+* [custom-domains](https://github.com/diodonfrost/terraform-azure-function-http-redirect/tree/master/examples/custom_domains) - Creat Azure function with custom domains.
 
 ## Inputs
 
