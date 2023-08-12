@@ -4,19 +4,48 @@
 
 Terraform module which create an Azure function to redirect specific domains.
 
-## Usage
+## Usages
 ```hcl
 module "azure-function-http-redirect" {
   source = "diodonfrost/function-http-redirect/azure"
 
-  function_app_name_prefix      = "my-function-app-name"
-  service_plan_name             = "my-service-plan-name"
-  storage_account_name          = "my-storage-account-name"
-  resource_group_name           = "my-resource-group-name"
-  location                      = "westeurope"
-  redirect_mappings             = {
+  function_app_name_prefix = "my-function-app-name"
+  service_plan_name        = "my-service-plan-name"
+  storage_account_name     = "my-storage-account-name"
+  resource_group_name      = "my-resource-group-name"
+  location                 = "westeurope"
+  redirect_mappings        = {
     "foo.example.com": "https://foo.com",
     "bar.example.com": "https://bar.com",
+  }
+}
+```
+
+Using custom domains:
+```hcl
+module "azure-function-http-redirect" {
+  source = "diodonfrost/function-http-redirect/azure"
+
+  function_app_name_prefix = "my-function-app-name"
+  service_plan_name        = "my-service-plan-name"
+  storage_account_name     = "my-storage-account-name"
+  resource_group_name      = "my-resource-group-name"
+  location                 = "westeurope"
+  redirect_mappings = {
+    "foo.contoso.com" : "https://foo.com",
+    "bar.contoso.com" : "https://bar.com",
+  }
+  custom_domains = {
+    custom_domain_1 = {
+      name                         = "foo"
+      dns_zone_name                = "contoso.com"
+      dns_zone_resource_group_name = "my-dns-zone-resource-group-name"
+    }
+    custom_domain_2 = {
+      name                         = "bar"
+      dns_zone_name                = "contoso.com"
+      dns_zone_resource_group_name = "my-dns-zone-resource-group-name"
+    }
   }
 }
 ```
