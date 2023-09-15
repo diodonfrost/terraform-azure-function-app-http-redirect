@@ -1,6 +1,6 @@
 # terraform-azure-function-app-http-redirect
 
-[![CI](https://github.com/diodonfrost/terraform-azure-function-http-redirect/workflows/CI/badge.svg)](https://github.com/diodonfrost/terraform-azure-function-http-redirect)
+[![tox](https://github.com/diodonfrost/terraform-azure-function-http-redirect/workflows/tox/badge.svg)](https://github.com/diodonfrost/terraform-azure-function-http-redirect)
 
 Terraform module which create an Azure function to redirect specific domains.
 

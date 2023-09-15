@@ -1,0 +1,37 @@
+name: tox
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 18 * * SUN'
+
+jobs:
+  lint:
+    name: ${{ matrix.config.toxenv }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - toxenv: black
+          - toxenv: flake8
+          - toxenv: pylint
+          - toxenv: mypy
+          - toxenv: pre-commit
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+    
+      - name: Set up Python version
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: python -m pip tox
+
+      - name: Tox running
+        run: tox
+        env:
+          TOXENV: "${{ matrix.config.toxenv }}"
