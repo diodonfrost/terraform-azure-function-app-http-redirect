@@ -1,4 +1,4 @@
-# terraform-azure-function-http-redirect
+# terraform-azure-function-app-http-redirect
 
 [![CI](https://github.com/diodonfrost/terraform-azure-function-http-redirect/workflows/CI/badge.svg)](https://github.com/diodonfrost/terraform-azure-function-http-redirect)
 
@@ -7,7 +7,7 @@ Terraform module which create an Azure function to redirect specific domains.
 ## Usages
 ```hcl
 module "azure-function-http-redirect" {
-  source = "diodonfrost/function-http-redirect/azure"
+  source = "diodonfrost/function-app-http-redirect/azure"
 
   function_app_name_prefix = "my-function-app-name"
   service_plan_name        = "my-service-plan-name"
@@ -24,7 +24,7 @@ module "azure-function-http-redirect" {
 Using custom domains:
 ```hcl
 module "azure-function-http-redirect" {
-  source = "diodonfrost/function-http-redirect/azure"
+  source = "diodonfrost/function-app-http-redirect/azure"
 
   function_app_name_prefix = "my-function-app-name"
   service_plan_name        = "my-service-plan-name"
@@ -60,7 +60,7 @@ module "azure-function-http-redirect" {
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_custom_domains"></a> [custom\_domains](#input\_custom\_domains) | A list of custom domains to add to the Function App | <pre>map(object({<br>    name                         = string<br>    dns_zone_name                = string<br>    dns_zone_resource_group_name = string<br>  }))</pre> | `{}` | no |
-| <a name="input_function_app_name_prefix"></a> [function\_app\_name\_prefix](#input\_function\_app\_name\_prefix) | The prefix of the Azure Function App name | `string` | n/a | yes |
+| <a name="input_function_app_name"></a> [function\_app\_name](#input\_function\_app\_name) | The prefix of the Azure Function App name | `string` | n/a | yes |
 | <a name="input_http_redirect_code"></a> [http\_redirect\_code](#input\_http\_redirect\_code) | Which HTTP redirect code to use | `string` | `"301"` | no |
 | <a name="input_location"></a> [location](#input\_location) | The location of the Azure resources | `string` | n/a | yes |
 | <a name="input_redirect_mappings"></a> [redirect\_mappings](#input\_redirect\_mappings) | A key/value map of source domain name -> target url redirects. | `map(string)` | n/a | yes |
