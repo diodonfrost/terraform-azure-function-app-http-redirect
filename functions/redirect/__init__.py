@@ -1,6 +1,6 @@
-import os
+"""Azure Function App to redirect requests to the correct domain."""
 import json
-
+import os
 from urllib.parse import urlparse
 
 import azure.functions as func
@@ -15,7 +15,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     if domain_name in redirect_mappings:
         return func.HttpResponse(
-            body="Redirecting to {}".format(redirect_mappings[domain_name]),
+            body=f"Redirecting to {redirect_mappings[domain_name]}",
             status_code=http_redirect_code,
             headers={"Location": redirect_mappings[domain_name]},
         )
