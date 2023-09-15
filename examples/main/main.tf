@@ -10,7 +10,7 @@ resource "azurerm_resource_group" "this" {
 }
 
 
-module "azure-function-http-redirect" {
+module "azure_function_http_redirect" {
   source = "../../"
 
   function_app_name    = "fpn-${random_pet.suffix.id}"
