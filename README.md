@@ -84,6 +84,24 @@ module "azure-function-http-redirect" {
 | <a name="output_storage_account_id"></a> [storage\_account\_id](#output\_storage\_account\_id) | The ID of the storage account |
 | <a name="output_storage_account_name"></a> [storage\_account\_name](#output\_storage\_account\_name) | The name of the storage account |
 
+## Tests
+
+Some of these tests create real resources. That means they cost money to run, especially if you don't clean up after yourself. Please be considerate of the resources you create and take extra care to clean everything up when you're done!
+
+### End-to-end tests
+
+This module has been packaged with [Terratest](https://github.com/gruntwork-io/terratest) to tests this Terraform module.
+
+Install Terratest with depedencies:
+
+```shell
+# Prerequisite: install Go
+cd tests/end-to-end/ && go get ./...
+
+# Test simple scenario
+go test -timeout 30m -v main_test.go
+```
+
 ## Authors
 
 Modules managed by [diodonfrost](https://github.com/diodonfrost)
